@@ -9,7 +9,6 @@
 ## Example usage
 
     var requireSource = require('require-source').require;
-    var util = require('util');
 
     var logger = requireSource(function() {
         var util = require('util');

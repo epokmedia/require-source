@@ -1,5 +1,4 @@
 var requireSource = require('./index').require;
-var util = require('util');
 
 var logger = requireSource(function() {
 	var util = require('util');

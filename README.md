@@ -17,8 +17,13 @@
         }
     });
 
-    //should print 'hello world to the console' 
-    logger('hello world');
+    //should print 'hello' to the console
+    logger('hello');
+    
+    
+    //worldModule.world is equal to "world"
+    var worldModule = requireSource("module.exports.world='world'");
+    
 
 ## Running Tests
 

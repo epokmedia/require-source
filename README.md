@@ -2,26 +2,26 @@
 
   Create a module just by giving the js source code to a special require function
 
-  ## Installation
+## Installation
 
     $ npm install require-source
 
-  ## Example usage
+## Example usage
 
-    var requireSource = require('./requireSource').require;
+    var requireSource = require('require-source').require;
     var util = require('util');
 
     var logger = requireSource(function() {
-	    var util = require('util');
-	    module.exports = function(log) {
-		    util.log(log);
-	   }
+        var util = require('util');
+        module.exports = function(log) {
+            util.log(log);
+        }
     });
 
     //should print 'hello world to the console' 
     logger('hello world');
 
-  ## Running Tests
+## Running Tests
 
 To run the test suite first invoke the following command within the repo, installing the development dependencies:
 

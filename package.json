@@ -1,0 +1,23 @@
+{
+  "author": " <m.schwartz@epokmedia.fr>",
+  "name": "require-source",
+  "description": "Create a module just by giving the js source code to a special require function",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/epokmedia.git"
+  },
+  "main": "index",
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": "~0.6.9"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha":">=0.12.1",
+    "should":">=0.5.1"
+  },
+  "optionalDependencies": {}
+}

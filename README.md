@@ -8,9 +8,13 @@
 
 ## Example usage
 
+```javascript
+
     var requireSource = require('require-source').require;
 
-    var logger = requireSource(function() {
+    //The requireSource function takes an id and the
+    //module source code
+    var logger = requireSource('logger', function() {
         var util = require('util');
         module.exports = function(log) {
             util.log(log);
@@ -19,11 +23,16 @@
 
     //should print 'hello' to the console
     logger('hello');
+
+    //we can require the module later
+    var myLogger = requireSource('logger');
     
-    
+
+    //We can create a module by giving its source code as a string
     //worldModule.world is equal to "world"
-    var worldModule = requireSource("module.exports.world='world'");
+    var worldModule = requireSource('world', "module.exports.world='world'");
     
+``` 
 
 ## Running Tests
 

@@ -8,19 +8,35 @@ describe('when js source code is given', function() {
 
 
 	it('it should be executed properly and set the exports object', function() {
-		var helloModule = requireSource(sourceCode);
+		var helloModule = requireSource('helloModule', sourceCode);
+		helloModule.should.equal('hello');
+	});
+
+	it('it should be retrieved properly when calling require with id arg', function() {
+		var helloModule = requireSource('helloModule');
 		helloModule.should.equal('hello');
 	});
 
 	it('it should raise an error when invalid source code is given', function() {
 		(function(){
-  			var invalidModule = requireSource(invalidSourceCode);
+  			var invalidModule = requireSource('invalidModule', invalidSourceCode);
 		}).should.throw();
 	});
 
 
 })
 
+describe('when module id is unknown', function() {
+
+	var moduleId = 'unknowSourceModule';
+
+	it('it should raise an error when requireSource is called', function() {
+		(function() {
+			requireSource(moduleId);
+		}).should.throw();
+	})
+
+});
 
 describe('when a function enclosing a module code is given', function() {
 	var moduleCode = function() {
@@ -31,9 +47,13 @@ describe('when a function enclosing a module code is given', function() {
 	} 
 
 	it('it should be executed properly and set the exports object', function() {
-		var inspectModule = requireSource(moduleCode);
+		var inspectModule = requireSource('inspectModule', moduleCode);
 		inspectModule.should.be.a('function');
 		inspectModule(function() {}).should.equal('[Function]');
+
+		requireSource('inspectModule').should.equal(inspectModule);
 	});
+
+
 
 })
